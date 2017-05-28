@@ -1,0 +1,13 @@
+
+
+li.not-available {
+  color: grey ;
+}
+
+#explanation {
+  text-decoration: overline;
+}
+
+li.available{
+  text-decoration: underline;
+}
