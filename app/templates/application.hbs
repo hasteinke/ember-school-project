@@ -4,16 +4,26 @@
 </p>
 <p id="explanation"> Menu Tracker helps you see what dishes are available today
 </p>
+<p> {{menuLength}} foods total
+</p>
+<p>
+  {{availableItems.length}} foods available
+</p>
 <button {{action "wasClicked" 'button'}}> click here </button>
 
 
 <ul>
-  {{#each foods as |food|}}
+  {{#each model as |food|}}
     {{#if food.isAvailable}}
       <li> {{food.name}} <button {{action 'makeUnavailable' food }}>Make Unavailable</button> </li>
 
     {{else}}
-      <li class='not-available'> {{food.name}} <button {{action 'makeAvailable' food }}>Make Available</button> </li>
+      <li class='not-available'> {{food.name}}
+        <button {{action 'makeAvailable' food }}>Make Available</button>
+        <button {{action 'deleteIt' food}}>Get Rid of It</button>
+      </li>
     {{/if}}
   {{/each}}
 </ul>
+<hr> {{input value=newItem}}
+<button {{action 'saveNewItem' }}>Save</button>
